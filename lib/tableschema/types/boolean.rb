@@ -1,9 +1,3 @@
-# Hack to check against one type from http://stackoverflow.com/a/3028378/452684
-# because Ruby doesn't have a single boolean class
-module Boolean; end
-class TrueClass; include Boolean; end
-class FalseClass; include Boolean; end
-
 module TableSchema
   module Types
     class Boolean < Base
@@ -21,7 +15,7 @@ module TableSchema
       end
 
       def type
-        ::Boolean
+        ::TableSchema::Types::Boolean
       end
 
       def cast_default(value)
